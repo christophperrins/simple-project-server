@@ -5,7 +5,7 @@ pipeline {
         stage('Testing Environment') {
             steps {
                     sh 'mvn test -Dtest=ControllerAndServiceSuite'
-		    sh 'mvn test -Dtest=IntergrationSuite'
+		    sh 'mvn test -Dtest=IntegrationSuite'
                 }
             }
         stage('Build') {
