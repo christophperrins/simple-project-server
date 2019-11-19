@@ -15,7 +15,8 @@ pipeline {
             }
         stage('Deploy') {
             steps {
-		echo "deploy"
+		sh "docker build -t="christophperrins/simple-project:latest"
+		sh "docker push christophperrins/simple-project:latest"
             }
         }
     }
