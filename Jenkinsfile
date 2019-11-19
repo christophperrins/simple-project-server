@@ -15,7 +15,7 @@ pipeline {
             }
         stage('Deploy') {
             steps {
-		sh "docker build -t='christophperrins/simple-project:latest'"
+		sh 'docker build -t=christophperrins/simple-project:latest'
 		sh "docker push christophperrins/simple-project:latest"
             }
         }
