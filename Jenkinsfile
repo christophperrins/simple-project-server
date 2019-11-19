@@ -10,13 +10,12 @@ pipeline {
             }
         stage('Build') {
             steps {
-                    sh 'mvn install -DskipTests'
+		echo "Build"
                 }
             }
         stage('Deploy') {
             steps {
-                sh 'docker build -t="christophperrins/simple-server:latest'
-                sh 'docker push christophperrins/simple-server:latest'
+		echo "deploy"
             }
         }
     }
