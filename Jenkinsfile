@@ -11,6 +11,7 @@ pipeline {
         stage('Build') {
             steps {
 		sh 'mvn package -DskipTests'
+                sh 'docker build -t="carlymdysondocker/simple-project-server:latest" .'
                 }
             }
         stage('Deploy') {
