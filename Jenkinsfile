@@ -15,8 +15,8 @@ pipeline {
             }
         stage('Deploy') {
             steps {
-		sh 'docker build -t=christophperrins/simple-project:latest'
-		sh "docker push christophperrins/simple-project:latest"
+		def customImage = docker.build("my-image:${env.BUILD_ID}")
+		customImage.push()
             }
         }
     }
