@@ -38,9 +38,7 @@ pipeline {
 	}
 	steps {
 	    echo "production"
-	}
-		steps {
-                echo "hello"
+	
             }
         }
     }
