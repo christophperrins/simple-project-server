@@ -19,10 +19,8 @@ pipeline {
 		sh 'docker push carlymdysondocker/simple-project-server:latest'
             }
         }
-    }
-}
 
-stage('Testing Environment') {
+        stage('Testing Environment') {
             steps {
                 echo "hello"
             }
@@ -37,3 +35,9 @@ stage('Testing Environment') {
                 echo "hello"
             }
         }
+
+    }
+
+}
+
+
