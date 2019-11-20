@@ -29,7 +29,7 @@ stage("version"){
             }
         stage('Deploy') {
             steps {
-		sh 'docker build -t="christophperrins/simple-server:latest'
+		sh 'docker build -t="christophperrins/simple-server:latest"'
             }
         }
 
