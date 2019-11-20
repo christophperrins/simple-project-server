@@ -1,13 +1,23 @@
 pipeline {
+
     agent any
 
-    stages {
-	stage("version") {
-	    steps {
-		pom = readMavenPom file: 'pom.xml'
-                echo pom.version
-	    }
-	}
+
+    environment {
+    VERSION = readMavenPom().getVersion()
     }
+
+
+    stages {
+
+        stage('Test') {
+            steps {
+                echo "${VERSION}"
+            }
+
+        }
+
+    }
+
 }
 
