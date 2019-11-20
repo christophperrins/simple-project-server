@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+	stage("version") {
+	    steps {
+		pom = readMavenPom file: 'pom.xml'
+                echo pom.version
+	    }
+	}
         stage('Testing Environment') {
             steps {
                     sh 'mvn test -Dtest=ControllerAndServiceSuite'
@@ -19,12 +25,7 @@ pipeline {
 		sh 'docker push christophperrins/simple-server:latest'
             }
         }
-	stage("version") {
-	    steps {
-		pom = readMavenPom file: 'pom.xml'
-                echo pom.version
-	    }
-	}
+
     }
 }
 
