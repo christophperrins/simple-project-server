@@ -31,8 +31,13 @@ pipeline {
             }
         }
       stage('Production') {
+	when {
+		expression {
+			env.BRANCH_NAME == 'master'
+		}
+	}
             steps {
-                echo "hello"
+                echo "production"
             }
         }
 
