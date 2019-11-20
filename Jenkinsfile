@@ -41,6 +41,7 @@ stage("version"){
         stage('Staging') {
             steps {
                 echo "hello"
+            }
         }
         stage('Production') {
             when {
