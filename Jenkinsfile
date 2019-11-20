@@ -17,7 +17,7 @@ stage("version"){
 
         stage('Testing Environment') {
             steps {
-                    sh 'mvn test -Dtest=ControllerAndServiceSuite'
+            sh 'mvn test -Dtest=ControllerAndServiceSuite'
 		    sh 'mvn test -Dtest=IntegrationSuite'
                 }
             }
@@ -33,16 +33,16 @@ stage("version"){
             }
         }
 
-  stage('Testing') {
+        stage('Testing') {
             steps {
                 echo "hello"
             }
         }
-      stage('Staging') {
+        stage('Staging') {
             steps {
                 echo "hello"
         }
-      stage('Production') {
+        stage('Production') {
             when {
 	        expression {
 		env.BRANCH_NAME=='master'
