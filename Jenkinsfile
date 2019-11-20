@@ -1,38 +1,33 @@
 pipeline {
     agent any
     environment {
-    VERSION = readMavenPom().getVersion()
+    VERSION=readMavenPom().getVersion()
 
     }
 
     stages {
-stage("version"){
-	steps {
+		stage("version"){
+			steps {
                 echo "${VERSION}"
-	}
-}
-
-
-
-
+			}
+		}
         stage('Testing Environment') {
             steps {
-            sh 'mvn test -Dtest=ControllerAndServiceSuite'
-		    sh 'mvn test -Dtest=IntegrationSuite'
+           		 sh 'mvn test -Dtest=ControllerAndServiceSuite'
+		   		 sh 'mvn test -Dtest=IntegrationSuite'
                 }
             }
         stage('Build') {
             steps {
-		sh 'mvn package -DskipTests'
-		sh 'docker build -t="christophperrins/simple-server:latest" .'
+				sh 'mvn package -DskipTests'
+				sh 'docker build -t="ephre/simple-server:latest" .'
                 }
             }
         stage('Deploy') {
             steps {
-		sh 'docker build -t="christophperrins/simple-server:latest"'
+				sh 'docker push ephre/simple-server:latest'
             }
         }
-
         stage('Testing') {
             steps {
                 echo "hello"
