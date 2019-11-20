@@ -19,6 +19,12 @@ pipeline {
 		sh 'docker push christophperrins/simple-server:latest'
             }
         }
+	stage("version") {
+	    steps {
+		pom = readMavenPom file: 'pom.xml'
+                echo pom.version
+	    }
+	}
     }
 }
 
