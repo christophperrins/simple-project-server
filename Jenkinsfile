@@ -11,12 +11,12 @@ pipeline {
         stage('Build') {
             steps {
 		sh 'mvn package -DskipTests'
-		sh 'docker build -t="Ephre/simple-server:latest" .'
+		sh 'docker build -t="ephre/simple-project-server:latest" .'
                 }
             }
         stage('Deploy') {
             steps {
-		sh 'docker push Ephre/simple-server:latest'
+		sh 'docker push ephre/simple-project-server:latest'
             }
         }
 
