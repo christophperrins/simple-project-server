@@ -54,4 +54,9 @@ public class NoteController {
 	public NoteDto deleteNote(@PathVariable Long id) throws NotFoundException{
 		return service.deleteNote(id);
 	}
+
+	@RequestMapping(path = "core/", method = {RequestMethod.GET})
+	public String getHello() {
+		return "Hello";
+	}
 }
